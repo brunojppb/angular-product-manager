@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Acme Product Management</title>
+
+    <script src="js/angular.js"></script>
+  </head>
+  <body ng-app>
+
+    <table ng-init='products = [
+      {
+        "productId": 1,
+        "productName": "Bread",
+        "productCode": "GDN-0011",
+        "releaseDate": "March 19, 2009",
+        "cost": 9.00,
+        "price": 19.95,
+        "category": "garden",
+        "imageUrl": "https://openclipart.org/image/800px/svg_to_png/244260/rollbread.png"
+      },
+      {
+        "productId": 2,
+        "productName": "Croassant",
+        "productCode": "GDN-0011",
+        "releaseDate": "March 19, 2009",
+        "cost": 3.00,
+        "price": 12.95,
+        "category": "bakery",
+        "imageUrl": "https://openclipart.org/image/800px/svg_to_png/244259/croissant.png"
+      }
+
+    ]'>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Code</th>
+          <th>Available</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="product in products">
+          <td>
+            <img ng-src="{{product.imageUrl}}" title="{{product.product.productName}}" style="width: 60px; margin: 5px;"/>
+          </td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.productCode }}</td>
+          <td>{{ product.releaseDate }}</td>
+          <td>{{ product.price | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>
