@@ -3,5 +3,8 @@
 (function(){
   "use strict"
   // Define main module
-  var app = angular.module("productManagement", []);
+  var app = angular
+              .module("productManagement",
+                      ["common.services",
+                        "productResourceMock"]);
 }());

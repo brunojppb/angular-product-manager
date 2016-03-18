@@ -6,10 +6,23 @@
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/app.css" media="screen" title="no title" charset="utf-8">
+
+    <!-- Dependencies -->
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/ng-resource/dist/ng-resource.min.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Application -->
     <script src="app/app.js"></script>
+
+    <!-- Services -->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/productResource.js"></script>
+    <script src="common/services/productResourceMock.js"></script>
+
+    <!-- ProductControllers -->
     <script src="app/products/ProductListCtrl.js"></script>
   </head>
   <body ng-app="productManagement">
