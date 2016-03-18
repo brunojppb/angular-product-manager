@@ -1,0 +1,18 @@
+{
+  "name": "angular-product-managment",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "bruno paulino"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/brunojppb/angular-product-manager",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

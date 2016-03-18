@@ -4,54 +4,46 @@
     <meta charset="utf-8">
     <title>Acme Product Management</title>
 
-    <script src="js/angular.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/app.css" media="screen" title="no title" charset="utf-8">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/products/ProductListCtrl.js"></script>
   </head>
-  <body ng-app>
+  <body ng-app="productManagement">
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="font-size: large">
+        <h1>Product List</h1>
+      </div>
 
-    <table ng-init='products = [
-      {
-        "productId": 1,
-        "productName": "Bread",
-        "productCode": "GDN-0011",
-        "releaseDate": "March 19, 2009",
-        "cost": 9.00,
-        "price": 19.95,
-        "category": "garden",
-        "imageUrl": "https://openclipart.org/image/800px/svg_to_png/244260/rollbread.png"
-      },
-      {
-        "productId": 2,
-        "productName": "Croassant",
-        "productCode": "GDN-0011",
-        "releaseDate": "March 19, 2009",
-        "cost": 3.00,
-        "price": 12.95,
-        "category": "bakery",
-        "imageUrl": "https://openclipart.org/image/800px/svg_to_png/244259/croissant.png"
-      }
+      <div class="panel-body">
+        <table ng-controller="ProductListCtrl as vm" class="table table-striped">
+          <thead>
+            <tr>
+              <th><button type="button" ng-click="vm.toggleImage()" class="btn btn-primary">{{vm.showImage ? "hide" : "show"}} Image</button></th>
+              <th>Product</th>
+              <th>Code</th>
+              <th>Available</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="product in vm.products">
+              <td>
+                <img ng-if="vm.showImage" ng-src="{{product.imageUrl}}" title="{{product.product.productName}}" style="width: 60px; margin: 5px;"/>
+              </td>
+              <td>{{ product.productName }}</td>
+              <td>{{ product.productCode }}</td>
+              <td>{{ product.releaseDate }}</td>
+              <td>{{ product.price | currency }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-    ]'>
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Product</th>
-          <th>Code</th>
-          <th>Available</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="product in products">
-          <td>
-            <img ng-src="{{product.imageUrl}}" title="{{product.product.productName}}" style="width: 60px; margin: 5px;"/>
-          </td>
-          <td>{{ product.productName }}</td>
-          <td>{{ product.productCode }}</td>
-          <td>{{ product.releaseDate }}</td>
-          <td>{{ product.price | currency }}</td>
-        </tr>
-      </tbody>
-    </table>
+    </div>
 
   </body>
 </html>
