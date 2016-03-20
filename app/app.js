@@ -26,10 +26,24 @@
             templateUrl: 'app/products/productListView.html',
             controller: 'ProductListCtrl as vm'
           })
-          .state('editProduct',{
+          .state('productEdit',{
             url: 'products/edit/:productId',
             templateUrl: 'app/products/productEditView.html',
             controller: 'ProductEditCtrl as vm'
+          })
+          .state('productDetail', {
+            url: '/products/:productId',
+            templateUrl: 'app/products/productDetailView.html',
+            controller: 'ProductDetailCtrl as vm',
+            // Retrive data and inject in the controller
+            resolve: {
+              productResource: "productResource",
+              product: function(productResource, $stateParams) {
+                var productId = $stateParams.productId;
+                return productResource.get(
+                  {productId: productId}).$promise;
+              }
+            }
           });
       }
     ]
