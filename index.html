@@ -12,6 +12,7 @@
     <script src="js/angular.js"></script>
     <script src="js/angular-resource.js"></script>
     <script src="js/angular-mocks.js"></script>
+    <script src="js/angular-ui-router.js"></script>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -28,37 +29,10 @@
     <script src="app/products/ProductListCtrl.js"></script>
   </head>
   <body ng-app="productManagement">
-    <div class="panel panel-primary">
-      <div class="panel-heading" style="font-size: large">
-        <h1>Product List</h1>
+    <div class="container">
+      <!-- Here is where UI-Router will show its magic -->
+      <div ui-view>
       </div>
-
-      <div class="panel-body">
-        <table ng-controller="ProductListCtrl as vm" class="table table-striped">
-          <thead>
-            <tr>
-              <th><button type="button" ng-click="vm.toggleImage()" class="btn btn-primary">{{vm.showImage ? "hide" : "show"}} Image</button></th>
-              <th>Product</th>
-              <th>Code</th>
-              <th>Available</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="product in vm.products">
-              <td>
-                <img ng-if="vm.showImage" ng-src="{{product.imageUrl}}" title="{{product.product.productName}}" style="width: 60px; margin: 5px;"/>
-              </td>
-              <td>{{ product.productName }}</td>
-              <td>{{ product.productCode }}</td>
-              <td>{{ product.releaseDate }}</td>
-              <td>{{ product.price | currency }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
     </div>
-
   </body>
 </html>
