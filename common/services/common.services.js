@@ -6,5 +6,5 @@
 
     angular
         .module("common.services",
-                ["ngResource"])
+                ["ngResource"]);
 }());
