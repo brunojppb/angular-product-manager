@@ -17,3 +17,12 @@ body {
   background: #007ACC;
   color: #FFF;
 }
+
+form {
+  background-color: #A4C8E8;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px #CCC;
+  color: #404040;
+  font-size: 16px;
+  padding: 30px 20px;
+}
