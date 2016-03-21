@@ -42,9 +42,11 @@
                 ui-mask="AAA-****"
                 required="required"/>
       </div>
-      <span   class="help-block has-error"
-              ng-show="productForm.inputProductCode.$invalid">
-              Product name is required.
+      <span class="help-block has-error">
+        <span ng-messages="productForm.inputProductCode.$error">
+          <span ng-message="parse">Code is invalid</span>
+          <span ng-message="required">Required</span>
+        </span>
       </span>
     </div>
 
@@ -71,7 +73,7 @@
 
     <div class="form-group">
       <label for="inputDescription" class="col-md-2 control-label">
-        Product Name
+        Description
       </label>
       <div class="col-md-10">
         <textarea id="inputDescription" class="form-control" placeholder="Description" rows="3" ng-model="vm.product.description">
