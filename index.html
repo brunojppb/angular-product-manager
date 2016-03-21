@@ -29,6 +29,7 @@
     <!-- ProductControllers -->
     <script src="app/products/ProductListCtrl.js"></script>
     <script src="app/products/ProductDetailCtrl.js"></script>
+    <script src="app/products/ProductEditCtrl.js"></script>
 
   </head>
   <body ng-app="productManagement">
@@ -51,7 +52,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a ui-sref="productList">Product List</a></li>
-            <li><a ui-sref="editProduct({productId:0})"><i class="fa fa-plus"></i> Add product</a></li>
+            <li><a ui-sref="editProduct.info({productId:0})"><i class="fa fa-plus"></i> Add product</a></li>
           </ul>
         </div>
       </div>
