@@ -4,7 +4,7 @@
 
   angular
     .module('productManagement')
-    .controller('ProductEditCtrl', ['product', '$log', function(product, $log) {
+    .controller('ProductEditCtrl', ['product', '$log', '$state', 'toastr', function(product, $log, $state, toastr) {
       var vm = this;
 
       vm.product = product;
@@ -22,6 +22,30 @@
         // $event.stopPropagration();
 
         vm.opened = !vm.opened;
+      };
+
+      vm.submit = function() {
+        vm.product.$save(function(data) {
+          toastr.success('Product saved', 'Go in peace!');
+        });
+      };
+
+      vm.cancel = function() {
+        $state.go('productList');
+      };
+
+      vm.addTags = function(tags) {
+        if(tags) {
+          var arr = tags.split(',');
+          vm.product.tags = vm.product.tags ? vm.product.tags.concat(arr) : arr;
+          vm.newTags = '';
+        } else {
+          alert('Please enter one or more tags separated by commas');
+        }
+      }
+
+      vm.removeTag = function(index) {
+        vm.product.tags.splice(index, 1);
       }
 
     }]);
