@@ -8,6 +8,7 @@
       var vm = this;
 
       vm.product = product;
+
       $log.info("Product: " + vm.product.productName);
 
       if (vm.product && vm.product.productId) {
@@ -15,6 +16,14 @@
       } else {
         vm.title = "New Product";
       }
+
+      vm.open = function($event) {
+        // $event.preventDefault();
+        // $event.stopPropagration();
+
+        vm.opened = !vm.opened;
+      }
+
     }]);
 
 }());

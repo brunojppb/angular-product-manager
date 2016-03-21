@@ -12,9 +12,9 @@
         var products = [
             {
                 "productId": 1,
-                "productName": "Leaf Rake",
+                "productName": "Leaf Rake 2",
                 "productCode": "GDN-0011",
-                "releaseDate": "March 19, 2009",
+                "releaseDate": "2016-01-01",
                 "description": "Leaf rake with 48-inch wooden handle.",
                 "cost": 9.00,
                 "price": 19.95,

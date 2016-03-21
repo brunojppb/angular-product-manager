@@ -7,7 +7,7 @@
         Product Name
       </label>
       <div class="col-md-4">
-        <input type="text" class="form-control" id="inputProductName" placeholder="Product Name" ng-model="vm.product.productName">
+        <input type="text" class="form-control" id="inputProductName" placeholder="Product Name" ng-model="vm.product.productName" />
       </div>
     </div>
 
@@ -16,7 +16,28 @@
         Code
       </label>
       <div class="col-md-4">
-        <input type="text" class="form-control" id="inputCode" ng-model="vm.product.productCode"  ui-mask="AAA-****">
+        <input type="text" class="form-control" id="inputCode" ng-model="vm.product.productCode" ui-mask="AAA-****" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputAvailabilityDate" class="col-md-2 control-label">
+        Date
+      </label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input type="text" class="form-control"
+                    id="inputAvailabilityDate"
+                    uib-datepicker-popup="MMM dd, yyyy "
+                    is-open="vm.opened"
+                    ng-model="vm.product.releaseDate"/>
+          <span class="input-group-btn">
+            <!-- $event define the current event -->
+            <button class="btn btn-default" ng-click="vm.open($event)">
+              <i class="fa fa-calendar"></i>
+            </button>
+          </span>
+        </div>
       </div>
     </div>
 
