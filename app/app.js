@@ -1,7 +1,7 @@
 (function() {
   "use strict";
   var app = angular.module("productManagement", ["common.services",
-    "ui.router", "ui.mask", "ngAnimate", "ngTouch", "ui.bootstrap", "toastr",
+    "ui.router", "ui.mask", "ngAnimate", "ngTouch", "ui.bootstrap", "toastr", "ngMessages",
     "productResourceMock"
   ]);
 

@@ -24,10 +24,14 @@
         vm.opened = !vm.opened;
       };
 
-      vm.submit = function() {
-        vm.product.$save(function(data) {
-          toastr.success('Product saved', 'Go in peace!');
-        });
+      vm.submit = function(isValid) {
+        if(isValid) {
+          vm.product.$save(function(data) {
+            toastr.success('Product saved', 'Go in peace!');
+          });
+        } else {
+          toastr.error('fix it before save', 'OMG! there is an error');
+        }
       };
 
       vm.cancel = function() {
